@@ -1,0 +1,427 @@
+.container {
+    display: flex;
+    align-items: center; /* Centre verticalement les éléments */
+	justify-content: center;
+}
+
+.container h2 {
+    text-align: center; /* Centre le texte à l'intérieur de h2 */
+}
+
+.container p {
+    margin-left: 10px; /* Ajuste l'espace entre h2 et p selon vos besoins */
+}
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+* {
+	box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+a {
+	color: black;
+	text-decoration: none;
+}
+a:visited {
+	color: black;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	background-color: #FFFEF8;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/** end reset css**/
+body {
+	max-width: 1140px;
+	margin:auto;
+	font-family: 'Work Sans' ;
+	font-size: 14px;
+	margin-top: 70px;
+}
+header {
+	display: flex;
+	justify-content: space-between;
+	margin: 50px 0
+}
+section {
+	margin: 50px 0
+}
+
+h1{
+	display: flex;
+	flex-direction: column;
+	font-family: 'Syne';
+	font-size: 22px;
+	font-weight: 800;
+	color: #B1663C
+}
+
+h1 > span {
+	font-family: 'Work Sans';
+	font-size:10px;
+	letter-spacing: 0.1em;
+;
+}
+
+h2{
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 30px;
+	color: #1D6154
+}
+nav ul {
+	display: flex;
+	align-items: center;
+	list-style-type: none;
+
+}
+nav li {
+	padding: 0 10px;
+	font-size: 1.2em;
+}
+
+li:hover {
+	color: #B1663C;
+}
+#introduction {
+	display: flex;
+	align-items: center;
+}
+#introduction figure {
+	flex: 1
+}
+#introduction img {
+	display: block;
+	margin: auto;
+	width: 80%;
+}
+
+#introduction article {
+	flex: 1
+}
+#introduction h2 {
+	margin-bottom: 1em;
+}
+
+#introduction p {
+	margin-bottom: 0.5em;
+}
+#portfolio h2 {
+	text-align: center;
+}
+
+.js-modal-2 {
+	padding-top: 10px;
+}
+
+.div-container {
+    min-width: 550px;
+	width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 35px auto;
+}
+.div-container > * {
+	padding: 10px 20px;
+	border: 1px solid #1D6154;
+	border-radius: 25px;
+	font-family: 'Syne';
+	color: #1D6154;
+	cursor: pointer;
+}
+.div-container > *:hover{
+	background-color: #1D6154;
+	color: white;
+}
+
+.active-filter {
+	background-color: #1D6154;
+	color: white;
+}
+.gallery {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+}
+
+.gallery img {
+	width: 100%;
+	height: 500px;
+    overflow: hidden;
+	object-fit: cover;
+}
+
+.close-button-container{
+    display: flex;
+    justify-content: flex-end;
+}
+.modal-buttons-container{
+	display: flex;
+    justify-content: space-between;
+}
+
+
+.projets-title {
+	margin-bottom: 0;
+}
+
+.projets-container {
+    display: flex;
+    justify-content: center; /* Pour aligner verticalement les éléments */
+    gap: 10px; /* Pour ajouter un espace entre les éléments, si nécessaire */
+}
+
+
+
+
+.js-modal-close {
+    border: none;
+    background-color: white;
+    font-size: 18px;
+}
+.js-modal-back {
+	border: none;
+    background-color: white;
+    font-size: 18px;
+}
+.modal-wrapper h3 {
+    font-size: 18px;
+    text-align: center;
+    display: block;
+    margin-bottom: 40px;
+}
+.modal-gallery {
+    width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+}
+.modal-gallery img {
+	width: 100%;
+}
+.modal-wrapper hr {
+    margin-top: 30px;
+	width: 100%;
+}
+.modal-button-container{
+    display: flex;
+    justify-content: center;
+}
+.add-photo-button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: 1px solid #1D6154;
+    border-radius: 25px;
+    font-family: 'Syne';
+    color: white;
+    cursor: pointer;
+    background-color: #1D6154;
+    width: 250px;
+}
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.image-container img {
+    display: block;
+}
+
+.image-container .overlay-icon {
+    position: absolute;
+    top: 6px; /* Ajustez cette valeur pour placer l'icône en fonction de vos besoins */
+    right: 6px; /* Ajustez cette valeur pour placer l'icône en fonction de vos besoins */
+    font-size: 16px; /* Ajustez cette valeur pour la taille de l'icône */
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    padding: 4px;
+    border-radius: 10%;
+}
+.form {
+	width: 50%;
+	margin: auto;
+}
+.form > * {
+	text-align: center;
+	
+}
+.form h2{
+	margin-bottom: 20px;
+}
+.form form {
+	text-align: left;
+	margin-top:30px;
+	display: flex;
+	flex-direction: column;
+}
+
+.form input {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.form select {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.form label {
+	margin: 2em 0 1em 0;
+}
+.form textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+.add-photo-form {
+	width: 70%;
+}
+input[type="submit"]{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin : 2em auto ;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px ;
+}
+
+footer nav ul {
+	display: flex;
+	justify-content: flex-end;
+	margin: 2em
+}
+
+.error-login {
+	background-color: #B84947;
+	color: white;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+}
+
+.edit {
+	background-color: black;
+	color: white;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw; /* Utilisez 100vw pour la largeur complète de la fenêtre */
+	position: absolute; /* Positionnement absolu pour sortir du flux */
+	left: 0; /* Alignez à gauche de la fenêtre */
+	top: 0; /* Positionnez en haut, ajustez si nécessaire */
+}
+
+.edit a {
+	color: white;
+}
+.edit a:visited {
+	color: white;
+}
+
+/* modal */
+
+.modal {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0,0,0.8);
+}
+
+.modal-wrapper {
+	overflow: auto;
+	width: 600px;
+	max-width: calc(100vh - 20px);
+	max-height: calc(100vh - 20px);
+	padding: 20px;
+	background-color: white;
+}
+
+.file-section {
+	background-color: #E8F1F6;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px;
+}
+
+.file-section label {
+	padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 25px;
+    font-family: 'Syne';
+    color: white;
+    cursor: pointer;
+    background-color: #B9C5CC;
+	color: #306685;
+    width: 170px;
+	text-align: center;
+}
+
+.fa-image {
+	color: #B9C5CC;
+	font-size: 50px;
+	margin-top: 5px;
+}
+
+#photo-container {
+	width: 80%;
+}
+#photo-container img {
+	width: 100%;
+}
+
