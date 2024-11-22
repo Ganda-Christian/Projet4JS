@@ -17,6 +17,11 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/app.js" defer></script>
+    <!-- SweetAlert2 CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.min.css">
+
+		<!-- SweetAlert2 JS -->
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.min.js"></script>
   </head>
   <body>
     <aside
@@ -52,29 +57,29 @@
             </button>
           </div>
         
-        <h3>Ajout photo</h3>
-      <div class="form add-photo-form">
-        <form id="picture-form" action="#" method="post">
-          <div class="file-section">
-            <div id="photo-container"></div>
-            <div><i class="fa-regular fa-image picture-loaded"></i></div>
-            <label class="picture-loaded" for="file">+ Ajouter photo</label>
-            <input type="file" id="file" name="file" accept="image/png, image/jpeg" />
-            <p class="picture-loaded">jpg, png : 4mo max</p>
+            <h3>Ajout photo</h3>
+          <div class="form add-photo-form">
+            <form id="picture-form" action="#" method="post">
+              <div class="file-section">
+                <div id="photo-container"></div>
+                <div><i class="fa-regular fa-image picture-loaded"></i></div>
+                <label class="picture-loaded" for="file">+ Ajouter photo</label>
+                <input type="file" id="file" name="file" accept="image/png, image/jpeg" />
+                <p class="picture-loaded">jpg, png : 4mo max</p>
+              </div>
+              <label for="title">Titre</label>
+              <input type="text" name="title" id="title" />
+              <label for="category">Catégorie</label>
+              <select id="category" name="category" size="1">
+                <option value="1">Objets</option>
+                <option value="2">Appartements</option>
+                <option value="3">Hotels & restaurants</option>
+              </select>
+              <hr />
+              <input type="submit" value="Valider" />
+            </form>
           </div>
-          <label for="title">Titre</label>
-          <input type="text" name="title" id="title" />
-          <label for="category">Catégorie</label>
-          <select id="category" name="category" size="1">
-            <option value="1">Objets</option>
-            <option value="2">Appartements</option>
-            <option value="3">Hotels & restaurants</option>
-          </select>
-          <hr />
-          <input type="submit" value="Valider" />
-        </form>
-      </div>
-    </div>
+        </div>
     </div>
     </aside>
     <header>
@@ -115,7 +120,7 @@
       <section id="portfolio">
         <div class="projets-container">
           <h2 class="projets-title">Mes Projets</h2>
-          <a href="#modal1" style="display: none" class="js-modal js-modal-2"><i class="fa-regular fa-pen-to-square"></i>Mode édition</a>
+          <a href="#modal1" style="display: none" class="js-modal js-modal-2"><i class="fa-regular fa-pen-to-square"></i> Mode édition</a>
         </div>
       
         <div class="div-container">
@@ -139,11 +144,15 @@
     </main>
 
     <footer>
-      <nav>
-        <ul>
-          <li>Mentions Légales</li>
-        </ul>
-      </nav>
-    </footer>
+			<hr class="line-nav">
+			<nav>
+				<ul>
+					<li><a href="mention.html">Mentions Légales</a></li>
+					<li><a href="conditionGenerale.html">Conditions générales d'utilisation</a></li>
+					<li><a href="accessibilite.html">Accessibilité</a></li>
+					<li><a href="cookies.html">Cookies</a></li>
+				</ul>
+			</nav>
+		</footer>
   </body>
 </html>

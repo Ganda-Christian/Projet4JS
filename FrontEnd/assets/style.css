@@ -4,6 +4,53 @@
 	justify-content: center;
 }
 
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Modifier la direction du flex pour les petits écrans */
+    }
+    
+    .div-container {
+        width: 90%; /* Prendre 90% de la largeur de l'écran pour la div-container */
+    }
+
+    /* Adapter les tailles des titres et textes pour les écrans plus petits */
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .form {
+        width: 100%;
+    }
+    
+    /* Cacher un élément pour les petits écrans */
+    .hidden-mobile {
+        display: none;
+    }
+}
+
+/* Mobile - max-width: 480px */
+@media (max-width: 480px) {
+    body {
+        font-size: 0.9rem; /* Réduire la taille de la police pour les petits écrans */
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .div-container {
+        width: 100%; /* Prendre toute la largeur de l'écran */
+    }
+
+    /* Ajuster l'image */
+    #introduction img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
 .container h2 {
     text-align: center; /* Centre le texte à l'intérieur de h2 */
 }
@@ -83,6 +130,45 @@ header {
 	justify-content: space-between;
 	margin: 50px 0
 }
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav li {
+        padding: 10px 0;
+    }
+}
+
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 22px; /* Réduire la taille du titre pour les petits écrans */
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    header nav li {
+        padding: 10px 0;
+    }
+
+    header nav img {
+        width: 20px; /* Réduire la taille de l'icône Instagram sur mobile */
+    }
+}
+
 section {
 	margin: 50px 0
 }
@@ -150,10 +236,6 @@ li:hover {
 	text-align: center;
 }
 
-.js-modal-2 {
-	padding-top: 10px;
-}
-
 .div-container {
     min-width: 550px;
 	width: 50%;
@@ -186,6 +268,20 @@ li:hover {
 	grid-row-gap: 20px;
 }
 
+@media (max-width: 768px) {
+    /* Sur les tablettes : 2 colonnes */
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    /* Sur mobile : 1 colonne */
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
 .gallery img {
 	width: 100%;
 	height: 500px;
@@ -213,7 +309,38 @@ li:hover {
     gap: 10px; /* Pour ajouter un espace entre les éléments, si nécessaire */
 }
 
+.js-modal-2 {
+	padding-top: 10px;
+}
 
+@media (max-width: 768px) {
+    .projets-container {
+        flex-direction: column; /* Changer la disposition en colonne */
+        justify-content: center; /* Centrer le contenu horizontalement */
+        align-items: center; /* Centrer les éléments verticalement */
+        text-align: center; /* Centrer le texte */
+    }
+
+    .projets-title {
+        font-size: 24px; /* Réduire la taille du titre sur les petits écrans */
+        margin-bottom: 15px; /* Espacement plus grand entre le titre et le lien */
+    }
+
+    .js-modal-2 {
+        margin-top: 10px; /* Espacement supplémentaire sous le titre */
+    }
+}
+
+@media (max-width: 480px) {
+    .projets-title {
+        font-size: 20px; /* Réduire encore la taille du titre sur les petits écrans */
+    }
+
+    .js-modal-2 {
+        font-size: 16px; /* Réduire la taille du texte du lien sur mobile */
+        margin-top: 5px; /* Réduire l'espacement sous le titre */
+    }
+}
 
 
 .js-modal-close {
@@ -261,6 +388,39 @@ li:hover {
     background-color: #1D6154;
     width: 250px;
 }
+
+@media (max-width: 768px) {
+    .modal-gallery {
+        grid-template-columns: 1fr 1fr; /* 2 colonnes sur les tablettes */
+    }
+
+    h3 {
+        font-size: 20px; /* Réduire la taille du titre */
+    }
+
+    .add-photo-button {
+        font-size: 14px; /* Réduire la taille du bouton */
+        padding: 8px 16px; /* Réduire l'espace intérieur */
+    }
+}
+
+
+@media (max-width: 480px) {
+    .modal-gallery {
+        grid-template-columns: 1fr; /* 1 colonne sur mobile */
+    }
+
+    h3 {
+        font-size: 18px; /* Réduire encore la taille du titre */
+        margin-bottom: 15px;
+    }
+
+    .add-photo-button {
+        font-size: 14px; /* Réduire la taille du bouton sur mobile */
+        width: 200px; /* Limiter la largeur du bouton */
+    }
+}
+
 .image-container {
     position: relative;
     display: inline-block;
@@ -332,12 +492,26 @@ input[type="submit"]{
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+	cursor: pointer;
 }
 
 footer nav ul {
 	display: flex;
-	justify-content: flex-end;
+	justify-content: center;
 	margin: 2em
+}
+
+@media (max-width: 768px) {
+    footer nav ul {
+        flex-direction: column; /* Passage à une disposition verticale */
+        align-items: center; /* Centrer les éléments */
+    }
+}
+
+@media (max-width: 480px) {
+    footer nav ul {
+        flex-direction: column; /* Menu vertical sur mobile */
+    }
 }
 
 .error-login {
@@ -425,3 +599,51 @@ footer nav ul {
 	width: 100%;
 }
 
+.mention-back {
+	font-size: 20px;
+}
+
+.line-nav {
+	border: #1D6154 solid 1px;
+}
+
+
+@media (max-width: 768px) {
+    .form.add-photo-form {
+        width: 90%; /* Réduit la largeur du formulaire */
+        padding: 15px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    .form label, .form input, .form select {
+        font-size: 14px;
+    }
+
+    input[type="submit"] {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form.add-photo-form {
+        width: 90%;
+        padding: 10px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    .form label, .form input, .form select {
+        font-size: 12px;
+    }
+
+    input[type="submit"] {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}

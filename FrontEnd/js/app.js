@@ -1,9 +1,5 @@
 const url = "http://localhost:5678/api";
 
-getWorks();
-getCategories();
-displayAdminMode();
-handlePictureSubmit();
 
 // Toggle entre les deux modales
 const addPhotoButton = document.querySelector(".add-photo-button");
@@ -83,6 +79,8 @@ async function getCategories() {
   }
 }
 
+getCategories();
+
 // Ajout des eventListeners aux filtres
 function setFilter(data) {
   const div = document.createElement("div");
@@ -116,7 +114,7 @@ function displayAdminMode() {
     const editBanner = document.createElement("div");
     editBanner.className = "edit";
     editBanner.innerHTML =
-      '<p><a href="#modal1" class="js-modal"><i class="fa-regular fa-pen-to-square"></i>Mode édition</a></p>';
+      '<p><a href="#modal1" class="js-modal"><i class="fa-regular fa-pen-to-square"></i> Mode édition</a></p>';
     document.body.prepend(editBanner);
     document.querySelector(".log-button").textContent = "logout";
     document.querySelector(".log-button").addEventListener("click", () => {
@@ -124,6 +122,8 @@ function displayAdminMode() {
     });
   }
 }
+
+displayAdminMode();
 
 // MODALE
 let modal = null;
@@ -223,6 +223,8 @@ async function deleteWork(event) {
   }
 }
 
+getWorks();
+
 // Toggle entre les 2 modales
 function toggleModal() {
   const galleryModal = document.querySelector(".gallery-modal");
@@ -284,41 +286,60 @@ function handlePictureSubmit() {
   });
 
   const addPictureForm = document.getElementById("picture-form");
-
   addPictureForm.addEventListener("submit", async (event) => {
     event.preventDefault();
+  
     const hasImage = document.querySelector("#photo-container").firstChild;
     if (hasImage && titleValue) {
       const formData = new FormData();
-
       formData.append("image", file);
       formData.append("title", titleValue);
       formData.append("category", selectedValue);
-
+  
       const token = sessionStorage.authToken;
-
+  
       if (!token) {
         console.error("Token d'authentification manquant.");
         return;
       }
-
-      let response = await fetch(`${url}/works`, {
-        method: "POST",
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-        body: formData,
-      });
-      if (response.status !== 201) {
-        const errorText = await response.text();
-        console.error("Erreur : ", errorText);
-        const errorBox = document.createElement("div");
-        errorBox.className = "error-login";
-        errorBox.innerHTML = `Il y a eu une erreur : ${errorText}`;
-        document.querySelector("form").prepend(errorBox);
+  
+      try {
+        const response = await fetch(`${url}/works`, {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+          body: formData,
+        });
+  
+        if (response.status === 201) {
+          // Affichage du message de succès
+          Swal.fire({
+            icon: 'success',
+            title: 'Image envoyée avec succès !',
+            text: 'Votre photo a été ajoutée à la galerie.',
+            confirmButtonText: 'OK',
+            timer: 3000 // Le message de succès disparaît après 3 secondes
+          }).then(() => {
+            // Après la fermeture de l'alerte, attendre un peu avant de mettre à jour
+            setTimeout(() => {
+              getWorks(); // Actualiser la galerie
+              toggleModal(); // Fermer la modale d'ajout
+            }, 3000); // Délai de 3 secondes pour s'assurer que l'alerte est disparue
+          });
+        
+  
+        } else {
+          console.error("Erreur lors de l'ajout de la photo:", response.status);
+        }
+      } catch (error) {
+        console.error("Erreur lors de l'ajout de la photo:", error);
       }
     } else {
       alert("Veuillez remplir tous les champs");
     }
   });
+  
 }
+
+handlePictureSubmit();
